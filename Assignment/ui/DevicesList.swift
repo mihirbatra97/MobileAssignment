@@ -23,14 +23,14 @@ struct DevicesList: View {
                     if let data = device.data {
                         Group {
                             // Display color information
-                            if let color = data.color ?? data.dataColor {
+                            if let color = data.dataColor ?? data.color {
                                 Text("Color: \(color)")
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
                             }
                             
                             // Display capacity information
-                            if let capacity = data.capacity ?? data.dataCapacity {
+                            if let capacity = data.dataCapacity ?? data.capacity {
                                 Text("Capacity: \(capacity)")
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
@@ -52,7 +52,7 @@ struct DevicesList: View {
                             }
                             
                             // Display additional specs if available
-                            if let generation = data.generation ?? data.dataGeneration {
+                            if let generation = data.dataGeneration ?? data.generation {
                                 Text("Generation: \(generation)")
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
@@ -62,6 +62,42 @@ struct DevicesList: View {
                                 Text("Case Size: \(caseSize)")
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
+                            }
+                            
+                            // Display CPU model if available
+                            if let cpuModel = data.cpuModel {
+                                Text("CPU: \(cpuModel)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            
+                            // Display hard disk size if available
+                            if let hardDiskSize = data.hardDiskSize {
+                                Text("Storage: \(hardDiskSize)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            
+                            // Display screen size if available
+                            if let screenSize = data.screenSize {
+                                Text("Screen: \(String(format: "%.1f", screenSize))\"")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            
+                            // Display year if available
+                            if let year = data.year {
+                                Text("Year: \(year)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            
+                            // Display description if available
+                            if let description = data.description {
+                                Text("\(description)")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
                             }
                         }
                     }
