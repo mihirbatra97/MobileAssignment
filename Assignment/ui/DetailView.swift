@@ -18,7 +18,7 @@ struct DetailView: View {
             
             if let data = device.data {
                 if let price = data.price {
-                    Text("Price: $\(price, specifier: "%.2f")")
+                    Text("Price: $\(price)")
                         .font(.title2)
                         .padding(.top, 8)
                 }
